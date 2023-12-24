@@ -63,6 +63,7 @@ Document the key classes, methods, and their parameters. For example:
 
 ## Examples
 
+```python
 from coderl import CodeCompilerEnv
 env = CodeCompilerEnv()
 code = """
@@ -73,8 +74,9 @@ int main(){
     }"""
 result = env.step(code)
 print(result) # (1, 1, True, {'stdout': 'Hello World'})
+```
 
-
+```python
 code = """
 #include<stdio.h>
 struct Point {
@@ -90,7 +92,9 @@ int main(){
     }"""
 result = env.step(code)
 print(result) # (0, -1, True, {'stderr': 'temp_code.c: ...'})
+```
 
+```python
 code = """
 #include<stdio.h>
 int main(){
@@ -100,7 +104,9 @@ int main(){
     }"""
 result = env.step(code)
 print(result) # (0, -2, True, {'stderr': 'temp_code.c:4:9: error: unused variable ‘x’  ...'})
+```
 
+```python
 code = """
 #include<stdio.h>
 void foo(void){
@@ -114,6 +120,7 @@ int main(){
 """
 result = env.step(code)
 print(result) # (0, -2, True, {'stderr': 'temp_code.c:4:9: error: unused variable ‘x’  ...'})
+```
 
 
 ## Contributing
