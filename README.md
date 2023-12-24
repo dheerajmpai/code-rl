@@ -52,14 +52,9 @@ print(info)
 
 ## API Reference
 
-Document the key classes, methods, and their parameters. For example:
-
 - `CodeCompilerEnv`: The Gym environment for code evaluation.
   - `reset()`: Resets the environment to its initial state.
   - `step(action)`: Executes an action in the environment.
-
-- `CodeModel`: The model for generating code.
-  - `predict(observation)`: Returns an action based on the given observation.
 
 ## Examples
 
