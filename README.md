@@ -1,3 +1,5 @@
+# Note: This repository is not up to date with the PyPI repository: Please install directly using pip for the latest version.
+
 # code-rl: Reinforcement Learning for Code Generation
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WQAKMmZYJjseBenRAlQseJu3auvBHwe4)
