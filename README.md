@@ -1,4 +1,4 @@
-# Note: This repository is not up to date with the PyPI repository: Please install directly using pip for the latest version.
+### Note: This repository is not up to date with the PyPI repository: Please install directly using pip for the latest version.
 
 # code-rl: Reinforcement Learning for Code Generation
 
