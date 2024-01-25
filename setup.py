@@ -1,5 +1,5 @@
 import setuptools
-
+from version import __version__
 with open("README.md", "r") as fh:
 	long_description = fh.read()
 
@@ -8,7 +8,7 @@ setuptools.setup(
 	name="code_rl",
 
 	# version of the module
-	version="0.0.4",
+	version=__version__,
 
 	# Name of Author
 	author="Dheeraj Pai",
@@ -26,7 +26,7 @@ setuptools.setup(
 	long_description_content_type="text/markdown",
 
 	# Any link to reach this module, ***if*** you have any webpage or github profile
-	# url="https://github.com/",
+	url="https://github.com/dheerajmpai/code-rl",
 	packages=setuptools.find_packages(),
 
 
@@ -35,10 +35,10 @@ setuptools.setup(
 
 
 
-	#	 install_requires=[
+	install_requires=[
 	#	 "package1",
-	# "package2",
-	# ],
+	"gym",
+    ],
 
 
 	license="MIT",

@@ -1,10 +1,9 @@
-### Note: This repository is not up to date with the PyPI repository: Please install directly using pip for the latest version.
-
 # code-rl: Reinforcement Learning for Code Generation
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WQAKMmZYJjseBenRAlQseJu3auvBHwe4)
 ![GitHub stars](https://img.shields.io/github/stars/dheerajmpai/code-rl?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/dheerajmpai/code-rl?style=social)
+[![Downloads](https://static.pepy.tech/badge/code-rl)](https://pepy.tech/project/code-rl)
 
 ## Overview
 
@@ -26,8 +25,7 @@ Ensure that you have Python 3.x installed before installation.
 
 System support: Linux and Mac.
 
-You need to have gcc 6+ and clang 11+ preinstalled
-
+You need to have gcc 6+ or clang 11+ preinstalled
 
 
 ### Basic Usage
@@ -54,9 +52,11 @@ print(info)
 
 ## API Reference
 
+
 - `CodeCompilerEnv`: The Gym environment for code evaluation.
   - `reset()`: Resets the environment to its initial state.
   - `step(action)`: Executes an action in the environment.
+
 
 ## Examples
 
@@ -124,6 +124,8 @@ print(result) # (0, -2, True, {'stderr': 'temp_code.c:4:9: error: unused variabl
 
 
 We warmly welcome contributions to `code-rl` and value your efforts to improve and expand this package. If you're interested in contributing, please start by forking the repository and submitting your changes through a pull request. We encourage you to adhere to established Python coding standards (PEP 8) for consistency. When submitting a pull request, please provide a clear description of the changes and any relevant issue numbers. We also recommend adding tests for new features to ensure reliability. For substantial changes, please open an issue first to discuss what you would like to change. Your contributions play a significant role in the development of `code-rl`, and we look forward to collaborating with the community!
+
 ## License
 
 MIT License
+
