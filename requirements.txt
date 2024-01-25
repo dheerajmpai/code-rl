@@ -6,3 +6,5 @@ pwntools==4.11.1
 faiss-cpu==1.7.4
 pymetasploit3==1.0.5 
 sqlmap==1.8 
+llama-index==0.9.37.post1
+transformers
