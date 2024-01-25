@@ -3,6 +3,9 @@ from version import __version__
 with open("README.md", "r") as fh:
 	long_description = fh.read()
 
+with open("requirements.txt", "r") as fh:
+	requirements = fh.read().splitlines()
+
 setuptools.setup(
 	# Here is the module name.
 	name="code_rl",
@@ -35,10 +38,7 @@ setuptools.setup(
 
 
 
-	install_requires=[
-	#	 "package1",
-	"gym",
-    ],
+	install_requires=requirements,
 
 
 	license="MIT",

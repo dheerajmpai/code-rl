@@ -1,4 +1,27 @@
 
+"""
+main.py
+====================================
+The core module of the 'code-rl' project, this script defines the CodeCompilerEnv class, 
+a gym environment for compiling and executing code in various programming languages. 
+It also sets up default configurations for different languages such as C, Java, Go, PHP, C#, C++, CUDA, and SystemVerilog.
+
+Classes:
+    CodeCompilerEnv: A custom gym environment that handles the compilation and execution 
+    of code written in various languages. It supports configurable compiler flags, input 
+    and output file handling, and execution commands.
+
+Global Variables:
+    defaultConfig: Dictionary containing the default configuration for C language.
+    defaultConfigJava: Dictionary containing the default configuration for Java.
+    defaultConfigGo: Dictionary containing the default configuration for Go.
+    defaultConfigPHP: Dictionary containing the default configuration for PHP.
+    defaultConfigCSharp: Dictionary containing the default configuration for C#.
+    defaultConfigCPP: Dictionary containing the default configuration for C++.
+    defaultConfigCUDA: Dictionary containing the default configuration for CUDA.
+    defaultConfigSystemVerilog: Dictionary containing the default configuration for SystemVerilog.
+"""
+
 import gym
 import subprocess
 from gym import spaces
@@ -71,7 +94,39 @@ echo "Hello, World!";
 
 
 class CodeCompilerEnv(gym.Env):
+    """
+    A gym environment for compiling and executing code in various programming languages.
+    It allows the user to define custom configurations for different languages, handling
+    compiler flags, file inputs/outputs, and execution commands.
+
+    Attributes:
+        reward_levels (list): A list of tuples containing compiler flags and corresponding rewards.
+        config (dict): Configuration dictionary for the selected language.
+        execute (bool): Flag to determine whether to execute the compiled code.
+        input_filename (str): Name of the file where the input code will be written.
+        io_args (str): Additional arguments for input/output processing.
+        output_filename (str): Name of the output file generated after compilation.
+        post_output_args (str): Additional arguments after output file is generated.
+        pre_flag (str): Additional flags before the main compiler command.
+        post_flag (str): Additional flags after the main compiler command.
+        run_file (str): Name of the file to run after compilation.
+        action_space (gym.spaces): Gym space representing the action space.
+        observation_space (gym.spaces): Gym space representing the observation space.
+
+    Methods:
+        step(action): Executes one step of the environment's dynamics.
+        reset(): Resets the environment to an initial state.
+        render(mode='human'): Renders one frame of the environment. (Not implemented)
+        close(): Performs any necessary cleanup. (Not implemented)
+    """
+
     def __init__(self, config= defaultConfig):
+        """
+        Initializes the CodeCompilerEnv environment with a given configuration.
+
+        Args:
+            config (dict): A dictionary containing configuration parameters. Defaults to defaultConfig.
+        """
         super(CodeCompilerEnv, self).__init__()
         self.reward_levels = config["reward_levels"]
         self.config = config
@@ -90,6 +145,17 @@ class CodeCompilerEnv(gym.Env):
         self.observation_space = spaces.Discrete(2)  # Success or failure
 
     def step(self, action):
+        """
+        Executes one step of the environment's dynamics. It involves writing the action (code) 
+        to a file, compiling it with increasing levels of warnings, and optionally executing it.
+
+        Args:
+            action (str): The source code to be compiled and executed.
+
+        Returns:
+            tuple: A tuple containing the observation, reward, done status, and additional info.
+        """
+
         # Convert action (code) into a file
         with open(self.input_filename, 'w') as file:
             file.write(action)
@@ -138,13 +204,29 @@ class CodeCompilerEnv(gym.Env):
         return observation, reward, True, info  # Sample observation, reward, done, info
 
     def reset(self):
+        """
+        Resets the environment to an initial state. Generates a new sample observation. MUST be redefined for custom environments.
+
+        Returns:
+            int: A sample observation from the observation space.
+        """
+
         # Reset the environment to an initial state
         return self.observation_space.sample()  # Sample observation
 
     def render(self, mode='human'):
+        """
+        Renders one frame of the environment. (Currently not implemented)
+
+        Args:
+            mode (str): The mode to render with. Defaults to 'human'.
+        """
         pass
 
     def close(self):
+        """
+        Performs any necessary cleanup. (Currently not implemented)
+        """
         pass
 
 defaultConfigCSharp = {
